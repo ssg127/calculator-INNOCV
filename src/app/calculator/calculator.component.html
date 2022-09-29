@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="calculator">
+
+    <div class="calculator__screen" [class.calculator__screen--error]="error">
+      {{currentNumber}}
+    </div>
+
+    <div class="calculator__keys">
+
+      <button (click)="setOperation(operator)" *ngFor="let operator of operators" class="calculator__keys__operator" type="button">
+        {{operator}}
+      </button>
+
+      <button (click)="setNumber('7')"> 7 </button>
+      <button (click)="setNumber('8')"> 8 </button>
+      <button (click)="setNumber('9')"> 9 </button>
+
+      <button (click)="setNumber('4')"> 4 </button>
+      <button (click)="setNumber('5')"> 5 </button>
+      <button (click)="setNumber('6')"> 6 </button>
+
+      <button (click)="setNumber('1')"> 1 </button>
+      <button (click)="setNumber('2')"> 2 </button>
+      <button (click)="setNumber('3')"> 3 </button>
+
+      <button (click)="setNumber('0')"> 0 </button>
+      <button (click)="setDecimal()" class="calculator__keys__decimal">.</button>
+      <button (click)="clear()" class="calculator__keys__clear">AC</button>
+
+      <button (click)="setOperation('=')" class="calculator__keys__equal">=</button>
+    </div>
+  </div>
+
+  <div class="historic">
+    <h1 class="historic__title"> Histórico de operaciones </h1>
+    <table class="historic__table">
+      <tr *ngFor="let op of historic">{{op}}</tr>
+    </table>
+  </div>
+</div>
